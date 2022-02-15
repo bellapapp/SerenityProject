@@ -128,7 +128,7 @@ public class AdminSteps extends BaseSteps {
 
     @Step
     public void findAndOpenPost(String postTitle) {
-        homePage.findAndOpenPost(postTitle);
+        Assert.assertTrue(homePage.findAndOpenPost(postTitle));
     }
 
     @Step
