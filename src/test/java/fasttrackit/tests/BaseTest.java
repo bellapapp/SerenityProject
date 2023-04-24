@@ -13,10 +13,10 @@ import org.openqa.selenium.WebDriver;
 public class BaseTest {
 
     @Managed(uniqueSession = true)
-    private WebDriver driver;
+    WebDriver driver;
 
     @Before
-    public void maximiseWindow(){
+    public void maximiseWindow() {
         driver.manage().window().maximize();
         driver.get(EnvConstants.BASE_URL);
     }
@@ -52,5 +52,8 @@ public class BaseTest {
 
     @Steps
     protected AdminSteps adminSteps;
+
+    @Steps
+    protected ReviewSteps reviewSteps;
 
 }

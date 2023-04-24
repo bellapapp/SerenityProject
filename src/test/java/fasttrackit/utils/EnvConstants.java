@@ -26,6 +26,8 @@ public class EnvConstants {
 
     public static final String SEARCH_BEANIE = "beanie";
 
+    public static final String SEARCH_NEW_HAT = "new hat";
+
     public static final String CHECKOUT_FIRST_NAME = "Papp";
 
     public static final String CHECKOUT_LAST_NAME = "Annabella";

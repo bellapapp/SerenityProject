@@ -2,12 +2,18 @@ package fasttrackit.steps;
 
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
+import org.yecht.Data;
 
 public class AdminSteps extends BaseSteps {
 
     @Step
     public void navigateToProductsMenu() {
         adminPage.clickOnProductsMenu();
+    }
+
+    @Step
+    public void navigateToCommentsMenu() {
+        adminPage.clickOnCommentsMenu();
     }
 
     @Step
@@ -139,5 +145,10 @@ public class AdminSteps extends BaseSteps {
     @Step
     public void checkAdminIsLoggedIn() {
         Assert.assertTrue("The welcome panel is not present.", adminPage.checkAdminIsLoggedIn());
+    }
+
+    @Step
+    public void approveTheReview(String comment) {
+        Assert.assertTrue(adminPage.approveTheReview(comment));
     }
 }

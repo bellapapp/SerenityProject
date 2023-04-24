@@ -2,6 +2,7 @@ package fasttrackit.pages;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
@@ -85,9 +86,18 @@ public class AdminPage extends PageObject {
     @FindBy(id = "post-search-input")
     private WebElementFacade searchField;
 
+    @FindBy(css = "#menu-comments a")
+    private WebElementFacade commentsMenu;
+
     @FindBy(css = "#the-list tr .order_number .order-view")
     private List<WebElementFacade> listOfOrders;
 
+    @FindBy(css = "#the-comment-list tr")
+    private List<WebElementFacade> listOfComments;
+
+    public void clickOnCommentsMenu() {
+        clickOn(commentsMenu);
+    }
 
     public void clickOnLoginButton() {
         clickOn(loginButton);
@@ -199,6 +209,16 @@ public class AdminPage extends PageObject {
         for(WebElementFacade elementFacade : listOfOrders) {
             if (elementFacade.getText().contains(orderNumber)){
                 clickOn(elementFacade);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean approveTheReview(String comment) {
+        for(WebElementFacade elementFacade: listOfComments) {
+            if (elementFacade.findElement(By.cssSelector(".comment-author+p")).getText().equalsIgnoreCase(comment)) {
+                elementFacade.findElement(By.cssSelector(".approve a")).click();
                 return true;
             }
         }

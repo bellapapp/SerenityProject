@@ -114,10 +114,7 @@ public class CartPage extends BasePage {
 
     public boolean isTheCartEmpty() {
         waitABit(3000);
-        if (listOfCartItems.isEmpty()) {
-            return true;
-        }
-        return false;
+        return listOfCartItems.isEmpty();
     }
 
     public boolean cartIsEmptyMessageIsPresent() {
